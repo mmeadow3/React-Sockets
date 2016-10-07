@@ -4,7 +4,7 @@ const express = require('express')
 const { Server } = require('http')
 const mongoose = require('mongoose')
 const socketio = require('socket.io')
-var path = require("path");
+var path = require("path"); /////needed for html hosting 
 
 const app = express()
 const server = Server(app)
