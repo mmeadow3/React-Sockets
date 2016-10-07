@@ -1,3 +1,8 @@
 "use strict";
 
-const socket = io()
+
+console.log("heytewefew");
+// const socket = io()
+
+
+// Clickstream data with websockets
