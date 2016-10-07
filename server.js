@@ -4,7 +4,8 @@ const express = require('express')
 const { Server } = require('http')
 const mongoose = require('mongoose')
 const socketio = require('socket.io')
-var path = require("path"); /////needed for html hosting 
+var path = require("path"); /////needed for html hosting
+const React = require("react")
 
 const app = express()
 const server = Server(app)
@@ -33,4 +34,9 @@ mongoose.connect(MONGODB_URL, () => {
 ////////////Alright, time to add some cool socket action//////////
 io.on("connection", (socket) => {
   console.log("we are connected via a websocket", socket.id);
+///////this is just passing data to the client side/////
+  io.emit("message",{
+    msg: "hello mike"
+  })
+///////////////////////////////////
 })
