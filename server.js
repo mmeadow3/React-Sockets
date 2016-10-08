@@ -32,17 +32,13 @@ mongoose.connect(MONGODB_URL, () => {
 
 
 ////////////Alright, time to add some cool socket action//////////
-let socketList = {};
+io.on('connection', function (socket) {
+  socket.emit('news', { hello: 'world' });
+  socket.on('my other event', function (data) {
+    console.log(data);
+  });
 
-io.on("connection", (socket) => {
-  console.log("we are connected via a websocket", socket.id);
-let users = [];
-let name = users[socket.id] 
-
-
-///////this is just passing data to the client side/////
-  io.emit("message",{
-    msg: "hello mike"
-  })
-///////////////////////////////////
-})
+    io.emit("message",{
+      msg: "hello mike"
+    })
+});
