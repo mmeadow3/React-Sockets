@@ -11,9 +11,5 @@ socket.on("message", function (data){
 })
 ///////////////////////////////
 
-socket.on("news", function (data){
-  console.log(data);
-})
-
 
 // drawing board
