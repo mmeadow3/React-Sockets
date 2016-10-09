@@ -18,8 +18,8 @@ socket.on("connection", function (data){
   var HelloWorld = React.createClass({
           render: function() {
           return <div style={divStyle}>
-              <h1>Hello World from React</h1>
-              <h1>this should equal "world" from the socket: {data}</h1>
+              <h1>Hello User {data.id} from React</h1>
+              <h1>{data}</h1>
               <p style={pStyle}>Text from REACT</p>
           </div>
 

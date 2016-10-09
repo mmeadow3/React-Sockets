@@ -33,16 +33,17 @@ mongoose.connect(MONGODB_URL, () => {
 
 ////////////Alright, time to add some cool socket action//////////
 io.on('connection', function (socket) {
-  socket.emit('connection', { hello: 'world' });
+  socket.emit('connection', { id: socket.id });
   socket.on('my other event', function (data) {
     console.log(data);
+    console.log(socket.id);
   });
 
     io.emit("message",{
       msg: "hello mike"
     })
+});
 
-  //   socket.on('disconnect', function() {
-  //       socket.broadcast('disconnect', { msg: 'Disconnected' });
-  //  });
+  io.on('disconnect', function() {
+      socket.broadcast('disconnect', { msg: 'Disconnected' });
  });
