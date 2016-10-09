@@ -27,4 +27,15 @@ socket.on("connection", function (data){
   });
   var example = document.getElementById("example")
   React.render(<HelloWorld />, example);
-})
+//////////////////////////
+  var UsersInRoom = React.createClass({
+          render: function() {
+          return <div>
+            <h1>Users in Room: {data.userNumber}</h1>
+          </div>
+        }
+  });
+  var users = document.getElementById("userDiv")
+  React.render(<UsersInRoom />, users);
+
+});/////////end socket data

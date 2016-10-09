@@ -5,6 +5,7 @@ const socket = io()
 
 socket.on("connection", function (data){
   console.log("youre user ID is:", data.id);
+  console.log(data.userNumber);
 })
 ////////this is recieving data from the socket on the server
 socket.on("message", function (data){
@@ -13,9 +14,11 @@ socket.on("message", function (data){
   // socket.emit('my other event', { my: 'data' });
   //////////////////////////////////////////////
 })
+
+socket.on('disconnect', () => console.log('Socket disconnected'))
 ///////////////////////////////
-socket.on("disconnect", function (data){
-  console.log(data.msg);
-})
+// socket.on("disconnect", function (socket){
+//   console.log(s);
+// })
 
 // drawing board
