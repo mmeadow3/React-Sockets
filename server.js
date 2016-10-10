@@ -41,7 +41,10 @@ io.on('connection', function (socket) {
     id: socket.id,
     userNumber: users
   });
-
+/////////recieving data back from the client/////////
+  socket.on('my other event', function (data) {
+  console.log(data.message);
+})
 
   io.emit("message",{
     msg: "hello mike"

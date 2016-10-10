@@ -40,11 +40,15 @@ socket.on("connection", function (data){
 
 });/////////end socket data
 
+////////////////////button logic/////////////////
 class SendText extends React.Component {
 
   sendText() {
-  console.log("hey");
+      socket.emit("my other event", {
+        message: "hello server"
+      });
   }
+
   render() {
     return (
       <div onClick={this.sendText}>
