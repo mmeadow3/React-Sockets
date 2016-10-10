@@ -43,15 +43,23 @@ socket.on("connection", function (data){
 ////////////////////button logic/////////////////
 class SendText extends React.Component {
 
-  sendText() {
-      socket.emit("my other event", {
-        message: "hello server"
-      });
-  }
+///////////////sending data back to the server////////
+  // sendText() {
+  //     socket.emit("my other event", {
+  //       message: "hello server"
+  //     });
+  // }
+////////////////////////////////////////////
+
+writeText(){
+  console.log("working")
+}
+
+
 
   render() {
     return (
-      <div onClick={this.sendText}>
+      <div onClick={this.writeText}>
         <button>Click for Text</button>
       </div>
     );
@@ -62,3 +70,54 @@ React.render(
   <SendText />,
   document.getElementById('button')
 );
+
+class DocumentInput extends React.Component {
+  render() {
+    return <input
+      type="file"
+      name={ `document-${ this.props.index }-document` }
+    />;
+  }
+}
+
+
+
+
+
+//////////////////This is for file uploading/////////////
+class DocumentsFieldSet extends React.Component{
+  constructor(props){
+    super(props);
+
+    this.state = {
+      documents: []
+    }
+
+    this.add = this.add.bind(this);
+  }
+
+  add() {
+    const documents = this.state.documents.concat(DocumentInput);
+    this.setState({ documents });
+  }
+
+  render () {
+    const documents = this.state.documents.map((Element, index) => {
+      return <Element key={ index } index={ index } />
+    });
+
+    return <div>
+      <button onClick={ this.add }>Add File</button>
+
+      <div className="inputs">
+        { documents }
+      </div>
+    </div>
+  }
+}
+
+React.render(
+  <DocumentsFieldSet />,
+  document.getElementById('container')
+);
+//////////////////////////////////////////////////////
