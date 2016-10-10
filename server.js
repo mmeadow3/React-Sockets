@@ -43,16 +43,13 @@ io.on('connection', function (socket) {
   });
 
 
-
-
-  // socket.on('my other event', function (data) {
-  //   console.log(data);
-  //   console.log(socket.id);
-  // });
-
   io.emit("message",{
     msg: "hello mike"
   })
 
-socket.disconnect()
-});
+socket.on("disconnect", function() {
+  users--
+})
+
+
+}); //////////end of the socket logic

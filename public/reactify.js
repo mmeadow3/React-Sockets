@@ -39,3 +39,22 @@ socket.on("connection", function (data){
   React.render(<UsersInRoom />, users);
 
 });/////////end socket data
+
+class SendText extends React.Component {
+
+  sendText() {
+  console.log("hey");
+  }
+  render() {
+    return (
+      <div onClick={this.sendText}>
+        <button>Click for Text</button>
+      </div>
+    );
+  }
+}
+
+React.render(
+  <SendText />,
+  document.getElementById('button')
+);

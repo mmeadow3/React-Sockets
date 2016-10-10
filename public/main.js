@@ -4,8 +4,8 @@ const socket = io()
 
 
 socket.on("connection", function (data){
-  console.log("youre user ID is:", data.id);
-  console.log(data.userNumber);
+  // console.log("youre user ID is:", data.id);
+  // console.log(data.userNumber);
 })
 ////////this is recieving data from the socket on the server
 socket.on("message", function (data){
